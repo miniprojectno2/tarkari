@@ -1,0 +1,12 @@
+# Render Build Configuration
+# Deploy this with: https://dashboard.render.com/new/web?repo=YOUR_REPO_URL
+
+services:
+  - type: web
+    name: tarkari
+    runtime: node
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
