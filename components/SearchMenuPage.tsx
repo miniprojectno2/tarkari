@@ -11,7 +11,7 @@ import MenuSearch from "@/components/MenuSearch";
 import { Button } from "@/components/ui/button";
 import { useCart } from "@/contexts/CartContext";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { formatPrice } from "@/lib/utils";
+import { formatPrice, encodeImageUrl } from "@/lib/utils";
 import { cn } from "@/lib/utils";
 
 interface DishData {
@@ -114,7 +114,7 @@ export default function SearchMenuPage() {
         {/* Image */}
         <div className="relative h-48 overflow-hidden">
           <Image
-            src={dish.imageUrl || "/dish-placeholder.jpg"}
+            src={encodeImageUrl(dish.imageUrl) || "/dish-placeholder.jpg"}
             alt={dish.name}
             fill
             className="object-cover transition-transform duration-500 group-hover:scale-110"

@@ -5,7 +5,7 @@ import { Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { formatPrice } from "@/lib/utils";
+import { formatPrice, encodeImageUrl } from "@/lib/utils";
 
 interface DishCardProps {
   id: number;
@@ -72,7 +72,7 @@ export default function DishCard({
       )}
       <div className="relative h-48 overflow-hidden">
         <Image
-          src={image || "/placeholder-dish.svg"}
+          src={encodeImageUrl(image) || "/placeholder-dish.svg"}
           alt={name}
           width={400}
           height={300}

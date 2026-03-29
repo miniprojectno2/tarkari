@@ -49,6 +49,21 @@ export function formatPrice(pricePaise: number): string {
 }
 
 /**
+ * Encode image URL - handles spaces and special characters in filenames
+ * Converts spaces to %20 for proper URL encoding
+ */
+export function encodeImageUrl(url: string): string {
+  if (!url) return "/placeholder-dish.svg";
+  
+  // If URL contains spaces, encode them
+  if (url.includes(" ")) {
+    return url.split("/").map(segment => encodeURIComponent(segment)).join("/");
+  }
+  
+  return url;
+}
+
+/**
  * Calculate order total with tax and delivery
  */
 export function calculateOrderTotal(subtotal: number): {

@@ -6,7 +6,7 @@ import { Clock, CheckCircle, XCircle, Package, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { formatPrice } from "@/lib/utils";
+import { formatPrice, encodeImageUrl } from "@/lib/utils";
 
 interface OrderItem {
   name: string;
@@ -103,7 +103,7 @@ export default function OrderCard({
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 bg-warm-beige/30 rounded-lg flex items-center justify-center">
                   <Image
-                    src={image}
+                    src={encodeImageUrl(image)}
                     alt={item.name}
                     width={40}
                     height={40}

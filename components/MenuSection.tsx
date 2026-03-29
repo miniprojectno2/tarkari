@@ -6,7 +6,7 @@ import { ArrowRight } from "lucide-react";
 import { motion } from "motion/react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/contexts/AuthContext";
-
+import { encodeImageUrl } from "@/lib/utils";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 interface MenuItem {
@@ -97,7 +97,7 @@ export default function MenuSection({
               {/* Image */}
               <div className="relative h-48 overflow-hidden">
                 <Image
-                  src={item.image}
+                  src={encodeImageUrl(item.image)}
                   alt={item.name}
                   width={400}
                   height={300}
